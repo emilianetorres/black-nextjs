@@ -1,8 +1,9 @@
-// pages/api/products.ts
+import { NextApiRequest, NextApiResponse } from "next";
+import fs from 'fs';
+import path from 'path';
 
-import { NextApiRequest, NextApiResponse } from 'next';
-import products from '../../database.json'
+const products = JSON.parse(fs.readFileSync(path.resolve('./data/products.json'), 'utf8'));
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json(products)
+  res.status(200).json(products);
 }
