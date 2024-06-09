@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from "next"
 import path from 'path'
 import fs from 'fs'
 
-const filePath = path.join(process.cwd(), 'database.json')
+const filePath = path.join(process.cwd(), 'public', 'database.json')
 const products = JSON.parse(fs.readFileSync(filePath, 'utf8'))
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
