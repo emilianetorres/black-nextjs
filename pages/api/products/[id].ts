@@ -1,11 +1,7 @@
 // pages/api/products/[id].ts
 
 import { NextApiRequest, NextApiResponse } from "next"
-import path from 'path'
-import fs from 'fs'
-
-const filePath = path.join(process.cwd(), 'public', 'database.json')
-const products = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+import products from '../../../database.json'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { id } = req.query
